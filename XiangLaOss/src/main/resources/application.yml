@@ -1,0 +1,17 @@
+server:
+  port: 8990
+  context-path: /pipes
+
+spring:
+  profiles:
+    active: dev
+  mvc:
+    static-path-pattern: /WEB-INF/static/**
+    view:
+      prefix: /WEB-INF/
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+
+mybatis-plus:
+  mapper-locations: classpath:/mappers/*/*Mapper.xml
+  type-aliases-package: com.tiki.xiangla.oss.biz.entity.*
