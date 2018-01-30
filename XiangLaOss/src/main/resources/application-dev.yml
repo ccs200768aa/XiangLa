@@ -8,6 +8,8 @@ spring:
     url:  jdbc:mysql://127.0.0.1:3306/xiangla?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
     password:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
 
 logging:
   level: debug

@@ -1,9 +1,11 @@
 package com.tiki.xiangla.oss.config.db;
 
 import com.baomidou.mybatisplus.plugins.PaginationInterceptor;
+import com.baomidou.mybatisplus.plugins.PerformanceInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 /**
  * Created with IntelliJ IDEA.
@@ -25,5 +27,14 @@ public class MybatisPlusConfig {
         PaginationInterceptor paginationInterceptor = new PaginationInterceptor();
         paginationInterceptor.setLocalPage(true);
         return paginationInterceptor;
+    }
+
+    @Bean
+    @Profile({"dev", "test"})
+    public PerformanceInterceptor performanceInterceptor() {
+        PerformanceInterceptor performanceInterceptor = new PerformanceInterceptor();
+        performanceInterceptor.setFormat(true);
+        performanceInterceptor.setMaxTime(100);
+        return performanceInterceptor;
     }
 }

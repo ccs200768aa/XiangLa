@@ -2,6 +2,10 @@ package com.tiki.xiangla.oss.biz.controller.merch;
 
 import com.tiki.xiangla.oss.biz.entity.merch.MerchUser;
 import com.tiki.xiangla.oss.biz.service.MerchUserServiceI;
+import com.tiki.xiangla.oss.common.exception.ReturnResult;
+import com.tiki.xiangla.oss.common.exception.XiangLaException;
+import com.tiki.xiangla.oss.common.exception.XiangLaExceptionEnum;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,8 +26,9 @@ public class MerchUserController {
     @Autowired
     private MerchUserServiceI merchUserService;
 
+    @ApiOperation("商家人员列表")
     @GetMapping(value = "/queryList")
-    public List<MerchUser> queryMerchUserList() {
-        return merchUserService.selectList();
+    public ReturnResult queryMerchUserList() {
+        return new ReturnResult(merchUserService.selectList());
     }
 }
