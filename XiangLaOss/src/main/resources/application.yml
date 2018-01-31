@@ -11,7 +11,12 @@ spring:
       prefix: /WEB-INF/
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
+  devtools:
+    restart:
+      enabled: true
+      poll-interval: 1000
 
 mybatis-plus:
   mapper-locations: classpath:/mappers/*/*Mapper.xml
   type-aliases-package: com.tiki.xiangla.oss.biz.entity.*
+

@@ -9,6 +9,9 @@ package com.tiki.xiangla.core.constant;
  */
 public class StringConstant {
 
+    /**
+     * ----------------------------------基本符号------------------------------------------------------
+     */
     public static final String COMMA = ",";
     public static final String HYPHON = "-";
     public static final String DOT = ".";
@@ -17,5 +20,9 @@ public class StringConstant {
     public static final String LEFT_BRACKET_CN = "【";
     public static final String RIGHT_BRACKET_CN = "】";
 
+    /**
+     * ---------------------------------正则表达式---------------------------------------------
+     */
+    public static final String REG_EMAIL = "^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
 
 }

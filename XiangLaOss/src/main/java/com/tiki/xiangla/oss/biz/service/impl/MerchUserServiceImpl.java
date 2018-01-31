@@ -17,13 +17,16 @@ import java.util.List;
  * Time: 18:19
  */
 @Service(value = "merchUserService")
-public class MerchUserServiceImpl implements MerchUserServiceI {
+public class MerchUserServiceImpl extends BaseServiceImpl<MerchUser> implements MerchUserServiceI {
     @Autowired
     private MerchUserMapper merchUserMapper;
 
-
     @Override
-    public List<MerchUser> selectList() {
-        return merchUserMapper.selectList(new EntityWrapper<MerchUser>());
+    public int saveOrUpdateEntity(MerchUser mu) {
+        if (mu.getMerchuserid() > 0) {
+            return updateEntity(mu);
+        } else {
+            return saveEntity(mu);
+        }
     }
 }
